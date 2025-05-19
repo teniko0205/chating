@@ -1,106 +1,143 @@
 /* 基本樣式 */
 body {
-    overflow: hidden;
+  font-family: 'Noto Sans TC', 'Yu Gothic', 'Hiragino Sans', 'Microsoft JhengHei', Arial, sans-serif;
+  background: #f7f6f2;
+  color: #222;
+  overflow: hidden;
 }
 
 /* 訊息區域樣式 */
 .messages {
-    overflow-y: auto;
-    background-color: var(--bs-body-bg);
+  background: rgba(255,255,255,0.7);
+  border-radius: 1.5rem;
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.03);
+  overflow-y: auto;
 }
 
-/* 聊天氣泡樣式 */
+/* 訊息泡泡（日式極簡） */
 .message {
-    max-width: 70%;
-    margin-bottom: 1rem;
-    padding: 0.75rem 1rem;
-    border-radius: 1rem;
-    position: relative;
+  display: inline-block;
+  padding: 0.5em 1em;
+  margin-bottom: 0.5em;
+  background: #fff;
+  border-radius: 1.5em;
+  box-shadow: 0 1px 4px 0 rgba(0,0,0,0.04);
+  font-size: 1rem;
+  max-width: 80%;
+  word-break: break-all;
+  animation: fadeIn 0.3s ease-in-out;
 }
-
 .message.sent {
-    margin-left: auto;
-    background-color: var(--bs-primary);
-    color: white;
+  background: #f7ede2;
+  margin-left: auto;
+  color: #a06c5a;
 }
-
 .message.received {
-    margin-right: auto;
-    background-color: var(--bs-secondary-bg);
+  background: #fff;
+  margin-right: auto;
+  color: #b48a78;
 }
-
 .message.system {
-    max-width: none;
-    text-align: center;
-    background: none;
-    color: var(--bs-secondary);
-    font-size: 0.875rem;
-    margin: 0.5rem 0;
-    padding: 0.25rem;
+  max-width: none;
+  text-align: center;
+  background: none;
+  color: #b48a78;
+  font-size: 0.875rem;
+  margin: 0.5rem 0;
+  padding: 0.25rem;
 }
-
 .message .time {
-    font-size: 0.75rem;
-    opacity: 0.7;
-    margin-top: 0.25rem;
+  font-size: 0.75rem;
+  opacity: 0.7;
+  margin-top: 0.25rem;
 }
-
 .message .nickname {
-    font-weight: bold;
-    margin-bottom: 0.25rem;
+  font-weight: bold;
+  margin-bottom: 0.25rem;
 }
 
-/* 聊天室列表樣式 */
+/* 聊天室列表（日式極簡） */
 .chat-rooms {
-    border-right: 1px solid var(--bs-border-color);
-    overflow-y: auto;
+  background: #fff8f0 !important;
+  border-right: 1px solid #ece6da;
+  min-width: 220px;
+  overflow-y: auto;
 }
 
-/* 輸入區域樣式 */
+/* 輸入區域（日式極簡） */
 .input-area {
-    border-top: 1px solid var(--bs-border-color);
+  background: #fff8f0 !important;
+  border-top: 1px solid #ece6da;
+  border-radius: 0 0 1.5rem 1.5rem;
 }
 
-/* Emoji 選擇器樣式 */
+/* Emoji 選擇器（日式極簡） */
 emoji-picker {
-    position: fixed;
-    bottom: 80px;
-    right: 20px;
-    z-index: 1000;
-}
-
-/* 動畫效果 */
-.message {
-    animation: fadeIn 0.3s ease-in-out;
+  --background: #fff8f0;
+  --border-radius: 1.5rem;
+  --box-shadow: 0 2px 8px 0 rgba(0,0,0,0.05);
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  z-index: 1000;
 }
 
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* 響應式設計 */
+/* 響應式（日式極簡） */
 @media (max-width: 768px) {
-    .chat-rooms {
-        position: fixed;
-        left: -250px;
-        top: 0;
-        bottom: 0;
-        z-index: 1000;
-        transition: left 0.3s ease-in-out;
-    }
-
-    .chat-rooms.show {
-        left: 0;
-    }
-
-    .message {
-        max-width: 85%;
-    }
+  .chat-rooms {
+    min-width: 100px;
+    padding: 1rem 0.5rem;
+  }
+  .messages {
+    font-size: 0.95rem;
+  }
+  .message {
+    max-width: 85%;
+  }
+}
+/* 日式極簡 Navbar 與按鈕 */
+.navbar {
+  background: #fff8f0 !important;
+  border-bottom: 1px solid #ece6da;
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.03);
+}
+.navbar-brand {
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #b48a78 !important;
+}
+.btn, .form-control, .modal-content {
+  border-radius: 1.5rem;
+}
+.btn-primary {
+  background: #b48a78;
+  border: none;
+}
+.btn-primary:hover, .btn-primary:focus {
+  background: #a06c5a;
+}
+.btn-outline-secondary {
+  border-color: #b48a78;
+  color: #b48a78;
+}
+.btn-outline-secondary:hover, .btn-outline-secondary:focus {
+  background: #f7ede2;
+  color: #a06c5a;
+}
+/* Modal */
+.modal-content {
+  background: #fff8f0;
+  border: none;
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.05);
 }
