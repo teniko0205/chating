@@ -1,0 +1,106 @@
+/* 基本樣式 */
+body {
+    overflow: hidden;
+}
+
+/* 訊息區域樣式 */
+.messages {
+    overflow-y: auto;
+    background-color: var(--bs-body-bg);
+}
+
+/* 聊天氣泡樣式 */
+.message {
+    max-width: 70%;
+    margin-bottom: 1rem;
+    padding: 0.75rem 1rem;
+    border-radius: 1rem;
+    position: relative;
+}
+
+.message.sent {
+    margin-left: auto;
+    background-color: var(--bs-primary);
+    color: white;
+}
+
+.message.received {
+    margin-right: auto;
+    background-color: var(--bs-secondary-bg);
+}
+
+.message.system {
+    max-width: none;
+    text-align: center;
+    background: none;
+    color: var(--bs-secondary);
+    font-size: 0.875rem;
+    margin: 0.5rem 0;
+    padding: 0.25rem;
+}
+
+.message .time {
+    font-size: 0.75rem;
+    opacity: 0.7;
+    margin-top: 0.25rem;
+}
+
+.message .nickname {
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+}
+
+/* 聊天室列表樣式 */
+.chat-rooms {
+    border-right: 1px solid var(--bs-border-color);
+    overflow-y: auto;
+}
+
+/* 輸入區域樣式 */
+.input-area {
+    border-top: 1px solid var(--bs-border-color);
+}
+
+/* Emoji 選擇器樣式 */
+emoji-picker {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    z-index: 1000;
+}
+
+/* 動畫效果 */
+.message {
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+    .chat-rooms {
+        position: fixed;
+        left: -250px;
+        top: 0;
+        bottom: 0;
+        z-index: 1000;
+        transition: left 0.3s ease-in-out;
+    }
+
+    .chat-rooms.show {
+        left: 0;
+    }
+
+    .message {
+        max-width: 85%;
+    }
+}
